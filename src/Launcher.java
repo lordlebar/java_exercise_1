@@ -31,7 +31,7 @@ public class Launcher
                          break;
                     }
                     else
-                         System.out.println("unknow command");
+                         System.out.println("Unknown command");
                }
                scanner.close();
           }
