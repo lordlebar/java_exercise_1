@@ -80,7 +80,7 @@ public class Launcher
 
                          //System.out.println(wordPerLine.length);
                          times = 0;
-                         for (int j = 0; j < line[i].length(); j += 1) 
+                         for (int j = 0; j < line[i].length(); j++) 
                          {
                               if (line[i].substring(j).startsWith(word_)) 
                               {
