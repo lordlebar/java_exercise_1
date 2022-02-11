@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.nio.file.*;
+import java.util.ArrayList;
+import java.util.stream;
 
 public class Launcher
 {
@@ -7,6 +9,7 @@ public class Launcher
      {
           try( Scanner scanner = new Scanner(System.in) )
           {
+               System.out.println("Bienvenue !");
                while (true)
                {
                     System.out.print("Enter your command: ");
@@ -49,80 +52,68 @@ public class Launcher
 
      private static void readText(Path path)
      {
-          try
-          {
-               String text = java.nio.file.Files.readString(path);
-               text = text.toLowerCase();
+          System.out.println("je suis la");
+     //      try
+     //      {
+     //           String text = java.nio.file.Files.readString(path);
+     //           text = text.toLowerCase();
 
-               String[] line = text.split(System.lineSeparator());
-               for(int i = 0; i < line.length; i++)
-               {
-                    String[] wordPerLine = line[i].split("\\s+");
-                    int times = 0;
-                    for (int j = 0; j < wordPerLine[i].length(); j++)
-                    {
-                         if (line[i].substring(j).startsWith(wordPerLine[j])) 
+     //           String[] list_word = text.split(" ");
+
+     //           List<String> wordText = new ArrayList<>();
+      //              String test = "";
+     //           for(int i = 0; i < list_word.length; i++)
+     //           {
+     //                    if(!list_word[i].equals(test))
                          {
-                              times++;
+     //                wordText.add(list_word[i]);
+     //                //System.out.println(wordText.get(i));
                          }
-                    }
-                    System.out.println(times);
-               } 
-          }
-          catch (Exception e) 
-          {
-               System.out.println(" file: " + e);
-          }
-     }
+     //           }
+
+     //           wordText = wordText.stream().distinct().collect(Collectors.toList());
+
+     //           System.out.println(wordText.size());
+     //           System.out.println(list_word.length);
+     //           int count = 0;
+     //           for(int i = 0; i < wordText.size(); i++)
+     //           {
+     //                count = 0;
+     //                for(int k = 0; k < list_word.length; k++)
+     //                {
+     //                     if(wordText.get(i) == list_word[k])
+     //                     {
+     //                          count++;
+     //                     }
+     //                }
+     //                System.out.println("le mot : '" + wordText.get(i) + "' est présent : " + count + " fois");
+     //           }
+     //      }
+     //      catch (Exception e) 
+     //      {
+     //           System.out.println(" file: " + e);
+     //      }
+     // } 
 }
 
 
 /* 
-
-  String text = java.nio.file.Files.readString(path);
-               text = text.toLowerCase();
-
-               String[] line = text.split(System.lineSeparator());
-               //System.out.println(text);
-               //System.out.println(line[0]);
-               //System.out.println(word[0]);
-
-               for(int i = 0; i < line.length; i++)
-               {
-                    String[] wordPerLine = line[i].split("\\s+");
+ System.out.println(wordPerLine);
                     String word_one = "";
                     int times = 0;
-                    int temp = 0;
-                    int restemp = 0;
 
                     for(int k = 0; k < wordPerLine.length; k++)
                     {
                          String word_ = wordPerLine[k];
-                         int size_word = 0;
-                         //size of word
-                         for(int y = 0; y < word_.length(); y++)
-                         {
-                              size_word++;
-                         }
-                         System.out.println(size_word);
-
                          //System.out.println(wordPerLine.length);
                          times = 0;
                          for (int j = 0; j < line[i].length(); j++) 
                          {
                               if (line[i].substring(j).startsWith(word_)) 
-                              {
                                    times++;
-                              }
-                              if(times >= temp)
-                              {
-                                   restemp = times;
-                                   word_one = word_;
-                              }
                          }
-                         temp = times;
                          System.out.println("cette ligne contients le mot '" + word_ + "'  " + times + " times");
                     }
-                    System.out.println("mot le plus contenu de cette ligne est : '" + word_one + "' avec " + restemp + " times");
+                    System.out.println("mot le plus contenu de cette ligne est : '" + word_one + "' avec " + times + " times");
                }
 */
