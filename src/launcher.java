@@ -48,10 +48,38 @@ public class Launcher
      }
 
      private static void readText(Path path)
-    {
-          try 
+     {
+          try
           {
                String text = java.nio.file.Files.readString(path);
+               text = text.toLowerCase();
+
+               String[] line = text.split(System.lineSeparator());
+               for(int i = 0; i < line.length; i++)
+               {
+                    String[] wordPerLine = line[i].split("\\s+");
+                    int times = 0;
+                    for (int j = 0; j < wordPerLine[i].length(); j++)
+                    {
+                         if (line[i].substring(j).startsWith(wordPerLine[j])) 
+                         {
+                              times++;
+                         }
+                    }
+                    System.out.println(times);
+               } 
+          }
+          catch (Exception e) 
+          {
+               System.out.println(" file: " + e);
+          }
+     }
+}
+
+
+/* 
+
+  String text = java.nio.file.Files.readString(path);
                text = text.toLowerCase();
 
                String[] line = text.split(System.lineSeparator());
@@ -97,10 +125,4 @@ public class Launcher
                     }
                     System.out.println("mot le plus contenu de cette ligne est : '" + word_one + "' avec " + restemp + " times");
                }
-          } 
-          catch (Exception e) 
-          {
-               System.out.println(" file: ..." + e);
-          }
-    }
-}
+*/
